@@ -31,6 +31,11 @@ export default {
         fs.unlink(file)
       })
     }
+  },
+  touchFile: function(filePath) {
+    return new Promise((resolve, reject) => {
+      fs.writeFile(filePath, resolve.bind(this))
+    })
   }
 }
 
