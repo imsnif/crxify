@@ -45,8 +45,7 @@ function bundleCrx(opts) {
       _fs2.default.writeFile(crxPath, crxBuffer);
     });
   }).catch(function (reason) {
-    throw new Error(reason);
-    console.log('Failed to crxify: ' + reason);
+    console.error('Failed to crxify: ' + reason);
   });
 }
 
@@ -60,6 +59,5 @@ function crxify(b, opts) {
   });
   b.on("update", function () {
     bundleCrx(parseOpts(opts));
-    console.log("updated!");
   });
 }
