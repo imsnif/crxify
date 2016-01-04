@@ -26,7 +26,7 @@ function parseOpts(opts) {
       //Full arg or first letter abbreviation
       parsed[requirement] = opts[requirement] || opts[requirement.charAt(0)];
     } else {
-      throw new Error('Missing required argument: ' + requirement);
+      console.error('Missing required argument: ' + requirement);
     }
   });
   return parsed;
@@ -55,7 +55,7 @@ function crxify(b, opts) {
   finished.then(function (number) {
     bundleCrx(parseOpts(opts));
   }).catch(function (reason) {
-    throw new Error('Failed to crxify: ' + reason);
+    console.error('Failed to crxify: ' + reason);
   });
   b.on("update", function () {
     bundleCrx(parseOpts(opts));
