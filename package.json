@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Browserify plugin to bundle a chrome extension",
   "main": "index.js",
+  "bin": "./dist/cmd.js",
   "scripts": {
     "build": "babel ./lib -d dist",
     "watch": "babel ./lib -w -d dist",
