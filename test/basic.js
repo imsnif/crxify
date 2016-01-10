@@ -1,5 +1,4 @@
 import test from 'tape'
-import browserify from 'browserify'
 import parseCRX from 'crx-parser'
 import utils from './utils/test-utils'
 import fs from 'fs'
