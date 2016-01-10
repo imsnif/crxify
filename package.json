@@ -39,5 +39,9 @@
     "node-rsa": "^0.2.26",
     "tape": "^4.4.0",
     "through2": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imsnif/crxify"
   }
 }
