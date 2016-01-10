@@ -42,18 +42,39 @@ function bundleCrx(opts) {
   });
   crx.load().then(function () {
     return crx.pack().then(function (crxBuffer) {
-      _fs2.default.writeFile(crxPath, crxBuffer);
+      _fs2.default.writeFile(crxPath, crxBuffer, function () {});
     });
   }).catch(function (reason) {
     console.error('Failed to crxify: ' + reason);
   });
 }
 
+var counter = 0;
+
+function addPipeline(group, streams) {
+  //TODO: bind group to this
+  if (Array.isArray(streams)) {
+    var promise = undefined;
+    streams.forEach(function (stream) {
+      promise = addPipeline(group, stream);
+    });
+    return promise;
+  } else {
+    var promise = group.add(streams);
+    if (streams._streams) {
+      return addPipeline(group, streams._streams);
+    }
+    counter += 1;
+    return promise;
+  }
+}
+
 function crxify(b, opts) {
   var group = new _happyEnd2.default();
-  var finished = group.add(b.pipeline._streams);
+  var finished = addPipeline(group, [b.pipeline._streams, b._bpack]);
   finished.then(function (number) {
-    bundleCrx(parseOpts(opts));
+    setTimeout(bundleCrx.bind(bundleCrx, parseOpts(opts)), 1000);
+    // TODO: Turn this whole thing around so browserify will be run programmatically
   }).catch(function (reason) {
     console.error('Failed to crxify: ' + reason);
   });
