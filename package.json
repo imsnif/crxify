@@ -20,7 +20,10 @@
   "dependencies": {
     "babel": "^6.3.26",
     "babel-cli": "^6.3.17",
+    "chokidar": "^1.4.2",
+    "commander": "^2.9.0",
     "crx": "^3.0.3",
+    "debounce": "^1.0.0",
     "happy-end": "^1.0.0"
   },
   "babel": {
