@@ -1,8 +1,7 @@
 {
   "name": "crxify",
   "version": "1.0.0",
-  "description": "Browserify plugin to bundle a chrome extension",
-  "main": "index.js",
+  "description": "Command line utility for building chrome crx files",
   "bin": "./dist/cmd.js",
   "scripts": {
     "build": "babel ./lib -d dist",
@@ -37,7 +36,6 @@
     "babel-preset-stage-2": "^6.3.13",
     "babel-tape-runner": "^2.0.0",
     "crx-parser": "^0.1.2",
-    "dev-null-stream": "0.0.1",
     "node-rsa": "^0.2.26",
     "tape": "^4.4.0",
     "through2": "^2.0.0"
