@@ -27,11 +27,6 @@ npm install crxify
 ```
 Crxify *intentionally* does not create a private key file for you. In order to create one, please see: https://help.github.com/articles/generating-ssh-keys/ (among others)
 
-### group.add([streams]) / group.add(stream)
-Accepts either a single stream or an array of streams to add to the group.
-Returns a promise that resolves to the number of ended streams (see example above).
-
-
 ## Example Use Cases
 
 Given the following library structure:
